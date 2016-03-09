@@ -1,0 +1,42 @@
+﻿<Page
+    x:Class="qaire1.QuestionPage1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:qaire1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" NavigationCacheMode="Disabled" Loaded="Page_Loaded">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*" MinWidth="12"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer x:Name="scrollViewerInput" Grid.Column="1" Grid.RowSpan="3">
+            <StackPanel x:Name="spQInput" BorderBrush="Chartreuse" BorderThickness="2">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Foreground" Value="Black" />
+                        <Setter Property="Background" Value="LightGray" />
+                    </Style>
+                    <Style TargetType="InkCanvas">
+                    </Style>
+                </StackPanel.Resources>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <TextBlock x:Name="qpTitle" TextWrapping="Wrap" FontSize="20" Text="Placeholder" Grid.Column="0" Grid.Row="0" VerticalAlignment="Bottom" />
+        <TextBlock x:Name="qpText" TextWrapping="Wrap" FontSize="16" Text="Placeholder2" Grid.Column="0" Grid.Row="1"/>
+        <Button x:Name="qpBack" Foreground="DarkSlateBlue" Background="LawnGreen" 
+                VerticalAlignment="Top" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center"
+                Click="qpBack_Click" Style="{StaticResource NavigationBackButtonNormalStyle}"/>
+    </Grid>
+</Page>

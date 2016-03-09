@@ -1,0 +1,41 @@
+﻿<Page
+    x:Class="qaire1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:qaire1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" NavigationCacheMode="Required">
+
+    <Grid x:Name="mainGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*" MinWidth="12"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel>
+            <Image Source="Assets/gl-1-logo.png" Grid.Column="0" Width="250" Margin="5"/>
+            <TextBlock Text="Memory Questionnaire" FontSize="26" TextWrapping="Wrap" Grid.Column="0" Margin="5"/>
+            <TextBlock Name="txtSummary" FontSize="20" TextWrapping="Wrap" Grid.Column="0" Margin="5"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Column="2">
+            <StackPanel x:Name="spSelect" BorderBrush="#FFD4C7C7" BorderThickness="2">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Foreground" Value="#FF3C2323" />
+                        <Setter Property="Background" Value="#FFB7CBFF" />
+                        <Setter Property="BorderBrush" Value="DarkSeaGreen"/>
+                        <Setter Property="Margin" Value="5"/>
+                        <Setter Property="Height" Value="70"/>
+                        <Setter Property="MinWidth" Value="200"/>
+                     </Style>
+                </StackPanel.Resources>
+
+            </StackPanel>
+        </ScrollViewer>
+        <Frame Name="myframe"/>
+    </Grid>
+</Page>
