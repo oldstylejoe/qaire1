@@ -5,7 +5,7 @@
     xmlns:local="using:qaire1"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" NavigationCacheMode="Disabled" Loaded="Page_Loaded">
+    mc:Ignorable="d" Loaded="Page_Loaded" NavigationCacheMode="Disabled">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
@@ -35,8 +35,5 @@
 
         <TextBlock x:Name="qpTitle" TextWrapping="Wrap" FontSize="20" Text="Placeholder" Grid.Column="0" Grid.Row="0" VerticalAlignment="Bottom" />
         <TextBlock x:Name="qpText" TextWrapping="Wrap" FontSize="16" Text="Placeholder2" Grid.Column="0" Grid.Row="1"/>
-        <Button x:Name="qpBack" Foreground="DarkSlateBlue" Background="LawnGreen" 
-                VerticalAlignment="Top" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center"
-                Click="qpBack_Click" Style="{StaticResource NavigationBackButtonNormalStyle}"/>
     </Grid>
 </Page>

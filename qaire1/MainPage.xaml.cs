@@ -75,6 +75,12 @@ namespace qaire1
                 mObjects.Add(lbl);
                 spSelect.Children.Add(lbl);
 
+                if(count==0)
+                {
+                    myframe.Navigate(typeof(QuestionPage1), lbl.Tag);
+                    lbl.Background = new SolidColorBrush(Colors.Gray);
+                }
+
                 ++count;
             }
         }
@@ -82,8 +88,8 @@ namespace qaire1
         private void Lbl_Click(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(QuestionPage1), (sender as Button).Tag);
-            //myframe.Navigate(typeof(QuestionPage1), (sender as Button).Tag); //to switch to next version (way better)
+            //rootFrame.Navigate(typeof(QuestionPage1), (sender as Button).Tag);
+            myframe.Navigate(typeof(QuestionPage1), (sender as Button).Tag); //to switch to next version (way better)
             (sender as Button).Background = new SolidColorBrush(Colors.Gray);
         }
 

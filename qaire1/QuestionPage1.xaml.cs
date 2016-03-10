@@ -76,6 +76,14 @@ namespace qaire1
             }
         }
 
+        //call backout things here
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            backout();
+            spQInput.Children.Clear();
+            base.OnNavigatingFrom(e);
+        }
+
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             qpTitle.Text = mQLayout.title;
