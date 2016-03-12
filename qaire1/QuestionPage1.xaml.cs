@@ -80,7 +80,7 @@ namespace qaire1
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             backout();
-            spQInput.Children.Clear();
+            //spQInput.Children.Clear();
             base.OnNavigatingFrom(e);
         }
 
@@ -249,15 +249,19 @@ namespace qaire1
         {
             foreach (var item in allChildren)
             {
-                if (item is InkCanvas)
+                if (item is Grid && (item as Grid).Children.Count == 2 &&
+                    (item as Grid).Children[0] is InkCanvas)
                 {
-                    if ((item as InkCanvas).InkPresenter.StrokeContainer.GetStrokes().Count > 0)
+                    if (((item as Grid).Children[0] as InkCanvas).InkPresenter.StrokeContainer.GetStrokes().Count > 0)
                     {
-                        var fil = await KnownFolders.DocumentsLibrary.CreateFileAsync("qaire\\inkcanvas.gif",
+                        string tag = ((item as Grid).Children[0] as InkCanvas).Tag as string;
+                        string time = DateTime.Now.ToFileTime().ToString();
+                        string fname = "qaire\\inkcanvas_" + tag + "_" + time + ".gif";
+                        var fil = await KnownFolders.DocumentsLibrary.CreateFileAsync(fname ,
                             CreationCollisionOption.GenerateUniqueName);
                         using (IRandomAccessStream stream = await fil.OpenAsync(FileAccessMode.ReadWrite))
                         {
-                            await (item as InkCanvas).InkPresenter.StrokeContainer.SaveAsync(stream);
+                            await ((item as Grid).Children[0] as InkCanvas).InkPresenter.StrokeContainer.SaveAsync(stream);
                         }
                     }
                 }
@@ -279,16 +283,15 @@ namespace qaire1
                 return; //nothing to do. you should install a translator
             }
 
-            var fil = await KnownFolders.DocumentsLibrary.CreateFileAsync("qaire\\inkcanvas.dat",
-                CreationCollisionOption.GenerateUniqueName);
             try
             {
                 for(int i = 0; i < allChildren.Count; ++i)
                 {
                     var item = allChildren[i];
-                    if (item is InkCanvas)
+                    if (item is Grid && (item as Grid).Children.Count == 2 &&
+                    (item as Grid).Children[0] is InkCanvas)
                     {
-                        var inkCanvas = (item as InkCanvas);
+                        var inkCanvas = ((item as Grid).Children[0] as InkCanvas);
                         IReadOnlyList<InkStroke> currentStrokes = inkCanvas.InkPresenter.StrokeContainer.GetStrokes();
                         if (currentStrokes.Count > 0)
                         {
@@ -303,10 +306,6 @@ namespace qaire1
                                     str += " " + r.GetTextCandidates()[0];
                                 }
                                 MainPage.eventRecord.Enqueue(str);
-                                //using (IRandomAccessStream stream = await fil.OpenAsync(FileAccessMode.ReadWrite))
-                                //{
-                                //    await FileIO.AppendTextAsync(fil, str);
-                                //}
 
                             }
                         }

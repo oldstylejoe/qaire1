@@ -99,7 +99,12 @@ namespace qaire1
         {
             if (eventRecord != null && eventRecord.Count > 0)
             {
-                var fil = await KnownFolders.DocumentsLibrary.CreateFileAsync("qaire\\test.dat",
+                string fname = "qaire\\questionnaire_log_" +
+                    DateTime.Now.Day.ToString() + "_" +
+                    DateTime.Now.Month.ToString() + "_" +
+                    DateTime.Now.Year.ToString() + "_" +
+                    DateTime.Now.Hour.ToString() + ".dat";
+                var fil = await KnownFolders.DocumentsLibrary.CreateFileAsync(fname,
                     CreationCollisionOption.OpenIfExists);
                 string dat;
                 string dump = "";
