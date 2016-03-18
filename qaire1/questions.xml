@@ -14,7 +14,7 @@
     <footer statement="Is extendable writing space needed/possible?"/>
   </page>
 
-  <page title="Yesterday's Events and Activities" shortname="q1">
+  <page title="Yesterday's Events and Activities" shortname="yesterday">
     <header statement="Your answers will not be used for any purpose other than scientific research, and you are not required to answer every question. However, you are encouraged to provide answers to the best of your ability."/>
     <checkbox title="1. Did you participate in any of the following events yesterday?" single="False" tag="pg2_c1">
       <entry statement="Chat with family member/friend(s)" tag="pg2_c1.1"/>
@@ -28,7 +28,7 @@
     <footer statement="A 'back' as well as a 'next' button might help"/>
   </page>
 
-  <page title="Chat with family member/friends" shortname="q2">
+  <page title="Chat with family member/friends" shortname="chat">
     <header statement="Please note that you can change your answers to previous questions at any time by tapping the 'back' button."/>
     <writebox statement="1. If applicable, and to the extent that you feel comfortable, please write down at least five (and as many as possible) details that you remember very clearly from the conversation(s) you had with family member/friend(s) yesterday, such as the topic of a conversation, the participant(s), or a specific quote/sentence." height="200" tag="pg3_w1"/>
     <checkbox title="2. Were any of the things you described in 1 something new to you?" single="True" tag="pg3_c1">
@@ -46,7 +46,7 @@
     <footer statement="Maybe we can put one-liner jokes down here?"/>
   </page>
 
-  <page title="Watching Clinic-provided TV" shortname="q3">
+  <page title="Watching Clinic-provided TV" shortname="tv">
     <header statement="You can use the 'next' button to skip a page if the questions are not relevant to what you did yesterday. If you watched TV programs on the Surface tablet, please do NOT write about that here. A later question will ask about your use of the tablet."/>
     <writebox statement="1. If applicable, and to the extent that you feel comfortable, please write down at least five (and as many as possible) details that you remember very clearly from the TV program(s) you watched on the Clinic's television set yesterday, such as the name of a program, the product displayed in a new commercial, or a specific quote/sentence." height="200" tag="pg4_w1"/>
     <checkbox title="2. Was any of the things you described in 1 something new to you?" single="True" tag="pg4_c1">
@@ -64,7 +64,7 @@
     <footer statement="Or inspirational quotes. Those might work too."/>
   </page>
 
-  <page title="Reading" shortname="q4">
+  <page title="Reading" shortname="read">
     <header statement="Internet articles and text items also count."/>
     <writebox statement="1. If applicable, and to the extent that you feel comfortable, please write down at least five (and as many as possible) details that you remember very clearly from the things you read yesterday, such as the title of a book, the name of a character, or a specific quote/sentence." height="200" tag="pg5_w1"/>
     <checkbox title="2. Was any of the things you described in 1 something new to you?" single="True" tag="pg5_c1">
@@ -82,7 +82,7 @@
     <footer statement="I assume that patients will have access to the internet on their phones."/>
   </page>
 
-  <page title="Surface Tablet Usage" shortname="q5">
+  <page title="Surface Tablet Usage" shortname="tablet">
     <header statement="We are half-way there! Thank you!"/>
     <checkbox title="1. Which of the following did you do on the tablet?" single="False" tag="pg6_c1">
       <entry statement="Listen to audiobooks/podcasts" tag="pg6_c1.1"/>
@@ -107,7 +107,7 @@
     <footer statement="We might also consider asking specific questions about, say, the Zoolander movie, once we decide to use it as a task, i.e. to show it to all patients regardless of their preference."/>
   </page>
 
-  <page title="Playing video games" shortname="q6">
+  <page title="Playing video games" shortname="game">
     <header statement="If you watched movies/TV programs on the Surface tablet, please write down what you remember in the previous page instead."/>
     <writebox statement="1. To the extent that you feel comfortable, please write down at least five (and as many as possible) details that you remember very clearly from the games, such as the name of the game, a rule of the game, or the highest score you obtained." height="200" tag="pg7_w1"/>
     <checkbox title="2. Was any of the things you described in 1 something new to you?" single="True" tag="pg7_c1">
@@ -139,7 +139,7 @@
     <footer statement="Can we get a Match-3 game in there at some point? An open source Candy Crush? And what happened to 2048?"/>
   </page>
 
-  <page title="Listening to Music" shortname="q7">
+  <page title="Listening to Music" shortname="music">
     <header statement="If you remember music from movies/TV shows that you watched yesterday, please write them down in the previous pages corresponding to movies/TV shows instead."/>
     <writebox statement="1. To the extent that you feel comfortable, please write down at least five (and as many as possible) details that you remember very clearly from the music you listened to yesterday, such as the name of the piece/song, the composer/artist, or a line of lyrics." height="200" tag="pg8_w1"/>
     <checkbox title="2. Was any of the things you described in 1 something new to you?" single="True" tag="pg8_c1">
@@ -157,7 +157,7 @@
     <footer statement="Are iPods going extinct?"/>
   </page>
 
-  <page title="Free Recall" shortname="q8">
+  <page title="Free Recall" shortname="recall">
     <writebox statement="1. If you remember other important experiences yesterday that were not covered anywhere else in the survey (e.g. a wonderful breakfast), please describe them here." height="800" tag="pg9_w1"/>
   </page>
 

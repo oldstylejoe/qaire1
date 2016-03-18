@@ -8,6 +8,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Globalization;
 using Windows.Storage;
+using Windows.Storage.AccessCache;
 using Windows.Storage.Streams;
 using Windows.System.Threading;
 using Windows.UI.Core;
@@ -149,6 +150,17 @@ namespace qaire1
             (((sender as Button).DataContext as Grid).Children[0] as InkCanvas).Height += step;
 
             //scrollViewerInput.ChangeView(null, scrollViewerInput.VerticalOffset + step, null);
+            shiftUp(step);
+        }
+
+        //This moves the scrollBar up after clicking on the 'extend' button on an inkcanvas.
+        //Have to wait 100ms to give the animation a chance to complete.
+        //This  may occasionally fail, but the user can still move the inkcanvas by dragging.
+        //pretty hackish, but I can't figure out how to change the default animation.
+        private async Task shiftUp(double dist)
+        {
+            await Task.Delay(100);
+            scrollViewerInput.ChangeView(null, scrollViewerInput.VerticalOffset + dist, null);
         }
 
         private string currentInkCanvas = "";
@@ -256,9 +268,12 @@ namespace qaire1
                     {
                         string tag = ((item as Grid).Children[0] as InkCanvas).Tag as string;
                         string time = DateTime.Now.ToFileTime().ToString();
-                        string fname = "qaire\\inkcanvas_" + tag + "_" + time + ".gif";
-                        var fil = await KnownFolders.DocumentsLibrary.CreateFileAsync(fname ,
-                            CreationCollisionOption.GenerateUniqueName);
+                        //string fname = "qaire\\inkcanvas_" + tag + "_" + time + ".gif";
+                        //var fil = await KnownFolders.DocumentsLibrary.CreateFileAsync(fname ,
+                        //    CreationCollisionOption.GenerateUniqueName);
+                        string fname = "inkcanvas_" + tag + "_" + time + ".gif";
+                        var folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(MainPage.folder_code);
+                        var fil = await folder.CreateFileAsync(fname, CreationCollisionOption.OpenIfExists);
                         using (IRandomAccessStream stream = await fil.OpenAsync(FileAccessMode.ReadWrite))
                         {
                             await ((item as Grid).Children[0] as InkCanvas).InkPresenter.StrokeContainer.SaveAsync(stream);

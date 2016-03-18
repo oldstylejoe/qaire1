@@ -49,6 +49,38 @@ namespace qaire1
                 TimeSpan.FromSeconds(1));
         }
 
+        //try to open up the save directory (c:\DataLogs\qaire). Get permission from a file picker if not possible.
+        public static string folder_code = "picker_dlog";
+        private bool folderOpen = false;
+        private bool folderOpening = false; //only one call to checkfolder at a time
+        private async Task checkFolder()
+        {
+            var fut = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList;
+            if (fut == null || !fut.ContainsItem(folder_code)) {
+                folderOpening = true;
+                var pick = new Windows.Storage.Pickers.FolderPicker();
+                pick.ViewMode = Windows.Storage.Pickers.PickerViewMode.List;
+                pick.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+                pick.FileTypeFilter.Add(".docx");
+                StorageFolder folder = await pick.PickSingleFolderAsync();
+                folderOpening = false;
+                if (folder != null)
+                {
+                    // Application now has read/write access to all contents in the picked folder (including other sub-folder contents)
+                    StorageApplicationPermissions.FutureAccessList.AddOrReplace(folder_code, folder);
+                    folderOpen = true;
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                folderOpen = true;
+            }
+        }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             // Remove the UI from the title bar if there are no pages in our in-app back stack
@@ -97,15 +129,22 @@ namespace qaire1
         //consume any events on the record
         private async void consumeRecord()
         {
-            if (eventRecord != null && eventRecord.Count > 0)
+            if (!folderOpen && !folderOpening) {
+                //shouldn't get here often
+                await checkFolder();
+            }
+
+            if (folderOpen && eventRecord != null && eventRecord.Count > 0)
             {
-                string fname = "qaire\\questionnaire_log_" +
+                string fname = "questionnaire_log_" +
                     DateTime.Now.Day.ToString() + "_" +
                     DateTime.Now.Month.ToString() + "_" +
                     DateTime.Now.Year.ToString() + "_" +
                     DateTime.Now.Hour.ToString() + ".dat";
-                var fil = await KnownFolders.DocumentsLibrary.CreateFileAsync(fname,
-                    CreationCollisionOption.OpenIfExists);
+                //var fil = await KnownFolders.DocumentsLibrary.CreateFileAsync("qaire\\"+fname,
+                //    CreationCollisionOption.OpenIfExists);
+                var folder = await StorageApplicationPermissions.FutureAccessList.GetFolderAsync(folder_code);
+                var fil = await folder.CreateFileAsync(fname, CreationCollisionOption.OpenIfExists);
                 string dat;
                 string dump = "";
                 while(eventRecord.TryDequeue(out dat))
@@ -144,16 +183,13 @@ namespace qaire1
             {
                 var q = new questionStructure();
                 q.title = nd.Attributes.GetNamedItem("title").NodeValue.ToString();
+                q.shortName = nd.Attributes.GetNamedItem("shortname").NodeValue.ToString();
 
-                foreach(var subnd in nd.ChildNodes)
+                foreach (var subnd in nd.ChildNodes)
                 {
                     if(subnd.NodeName == "header")
                     {
                         q.header = subnd.Attributes.GetNamedItem("statement").NodeValue.ToString();
-                    }
-                    else if (subnd.NodeName == "shortname")
-                    {
-                        q.shortName = subnd.Attributes.GetNamedItem("statement").NodeValue.ToString();
                     }
                     else if (subnd.NodeName == "footer")
                     {
@@ -311,8 +347,7 @@ namespace qaire1
             drawingAttributes.FitToCurve = true;
 
             ink.InkPresenter.UpdateDefaultDrawingAttributes(drawingAttributes);
-            ink.InkPresenter.InputDeviceTypes = CoreInputDeviceTypes.Mouse | CoreInputDeviceTypes.Pen | CoreInputDeviceTypes.Touch;
-            //ink.
+            ink.InkPresenter.InputDeviceTypes = CoreInputDeviceTypes.Mouse | CoreInputDeviceTypes.Pen;// | CoreInputDeviceTypes.Touch;
 
             gr.Children.Add(ink);
             Grid.SetRow(ink, 0);
@@ -376,6 +411,11 @@ namespace qaire1
                 }
             }
             q.body.Add(lv);
+        }
+
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            await checkFolder();
         }
     }
 }
