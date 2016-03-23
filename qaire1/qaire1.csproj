@@ -96,6 +96,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\add.png" />
     <Content Include="Assets\deNiroR.jpg" />
     <Content Include="Assets\DiCaprio.jpg" />
     <Content Include="Assets\down_arrow.png" />

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="d5f5da21-0fc5-44eb-9eb9-ede9fc25ba99" Publisher="CN=oldst_000" Version="1.0.2.0" />
+  <Identity Name="d5f5da21-0fc5-44eb-9eb9-ede9fc25ba99" Publisher="CN=oldst_000" Version="1.0.3.0" />
   <mp:PhoneIdentity PhoneProductId="d5f5da21-0fc5-44eb-9eb9-ede9fc25ba99" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>qaire1</DisplayName>
@@ -25,16 +25,16 @@
       </uap:VisualElements>
       <Extensions>
         <uap:Extension Category="windows.fileTypeAssociation">
-          <uap:FileTypeAssociation Name="gif">
+          <uap:FileTypeAssociation Name="dat">
             <uap:SupportedFileTypes>
-              <uap:FileType>.gif</uap:FileType>
+              <uap:FileType>.dat</uap:FileType>
             </uap:SupportedFileTypes>
           </uap:FileTypeAssociation>
         </uap:Extension>
         <uap:Extension Category="windows.fileTypeAssociation">
-          <uap:FileTypeAssociation Name="dat">
+          <uap:FileTypeAssociation Name="gif">
             <uap:SupportedFileTypes>
-              <uap:FileType>.dat</uap:FileType>
+              <uap:FileType>.gif</uap:FileType>
             </uap:SupportedFileTypes>
           </uap:FileTypeAssociation>
         </uap:Extension>

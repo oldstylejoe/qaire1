@@ -211,10 +211,22 @@ namespace qaire1
                     {
                         AddImageTile(ref q, subnd);
                     }
+                    else if (subnd.NodeName == "text_block")
+                    {
+                        AddTextBlock(ref q, subnd);
+                    }
                 }
                 
                 mQuestions.Add(q);
             }
+        }
+
+        private void AddTextBlock(ref questionStructure q, IXmlNode subnd)
+        {
+            var t = new TextBlock();
+            t.TextWrapping = TextWrapping.WrapWholeWords;
+            t.Text = subnd.Attributes.GetNamedItem("statement").NodeValue.ToString();
+            q.body.Add(t);
         }
 
         private void AddImageTile(ref questionStructure q, IXmlNode subnd)
@@ -354,11 +366,11 @@ namespace qaire1
 
             //allow extending the writing region
             var extendBT = new Button();
-            extendBT.Height = 30;
-            extendBT.Width = 100;
+            extendBT.Height = 40;
+            extendBT.Width = 40;
             ImageBrush buttonBR = new ImageBrush();
-            buttonBR.ImageSource = new BitmapImage(new Uri(this.BaseUri, "/Assets/down_arrow.png"));
-            buttonBR.Stretch = Stretch.None;
+            buttonBR.ImageSource = new BitmapImage(new Uri(this.BaseUri, "/Assets/add.png"));
+            buttonBR.Stretch = Stretch.Uniform;
             extendBT.Background = buttonBR;
             Grid.SetRow(extendBT, 0);
             extendBT.HorizontalAlignment = HorizontalAlignment.Right;

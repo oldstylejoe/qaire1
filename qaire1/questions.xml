@@ -1,21 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Questionnaire>
 
-  <introText statement="Please tap on the items below to answer questions about the tablet experience. You may navigate freely through the questions, and click the 'x' in the top right when you are done. Thank you!"/>
+  <introText statement="Please tap on the items below to describe your tablet experience. Click the 'x' in the top right when you are done. Thank you!"/>
 
   <page title="UCSD Memory Questionnaire: Introduction" shortname="MemoQ">
     <header statement="This questionnaire will be used by researchers at UCSD to advance our understanding of human memory. Your responses will be strictly confidential, and your help is truly appreciated. You will be asked a series of questions regarding your daily activity, with a particular focus on the use of the clinic-provided tablet. To start, click on the green bars on the left to bring up the question pages."/>
     <checkbox title="This is a check box." single="False" tag="pg1_c1">
       <entry statement="Some questions will ask you to pick an answer from multiple choices. Please choose all that apply, unless otherwise noted." tag="pg1_c1.1"/>
       <entry statement="To choose an option, tap the check box. Tap again to un-do." tag="pg1_c1.2"/>
+      <entry statement="Your selections will be remembered if you want to come back and change them later." tag="pg1_c1.3"/>
     </checkbox>
-    <writebox statement="This is a free-writing box. You can write in it using your stylus, and our program will be able to recognize your hand-writing. If you need more writing space, please tap the down arrow button at the bottom right of the box." height="500" tag="pg1_w1"/>
+    <checkbox title="This check box only selects one at a time." single="True" tag="pg1_rb1">
+      <entry statement="Sometimes you can only select one option." tag="pg1_rb1.1"/>
+      <entry statement="To choose an option, tap the check box." tag="pg1_rb1.2"/>
+      <entry statement="Tap another to chenge your mind." tag="pg1_rb1.3"/>
+      <entry statement="Your selections will be remembered if you want to come back and change them later." tag="pg1_rb1.4"/>
+    </checkbox>
+    <writebox statement="This is a free-writing box. You can write in it using your stylus, and our program will be able to recognize your hand-writing. An image of what you draw will also be recorded. If you need more writing space, please tap the plus button at the bottom right of the box." height="500" tag="pg1_w1"/>
     <likert statement="This is a ranking box. You will be asked to rank your opinion on the scale below. Click the numbers to indicate your range of confidence from the statement on the left to that on the right." name="lk_sample" number="5" left_title="Don't remember" right_title="Remember most certainly" tag="pg1_lk1"/>
+    <text_block statement="Your answers will not be used for any purpose other than scientific research, and you are not required to answer every question. However, you are encouraged to provide answers to the best of your ability."/>
+    <text_block statement="Please note that you can change your answers to previous questions at any time by tapping the 'back' button."/>
     <footer statement="Is extendable writing space needed/possible?"/>
   </page>
 
   <page title="Yesterday's Events and Activities" shortname="yesterday">
-    <header statement="Your answers will not be used for any purpose other than scientific research, and you are not required to answer every question. However, you are encouraged to provide answers to the best of your ability."/>
+    <header statement="These questions deal with general events from yesterday."/>
     <checkbox title="1. Did you participate in any of the following events yesterday?" single="False" tag="pg2_c1">
       <entry statement="Chat with family member/friend(s)" tag="pg2_c1.1"/>
       <entry statement="Watch TV" tag="pg2_c1.2"/>
@@ -29,13 +38,13 @@
   </page>
 
   <page title="Chat with family member/friends" shortname="chat">
-    <header statement="Please note that you can change your answers to previous questions at any time by tapping the 'back' button."/>
-    <writebox statement="1. If applicable, and to the extent that you feel comfortable, please write down at least five (and as many as possible) details that you remember very clearly from the conversation(s) you had with family member/friend(s) yesterday, such as the topic of a conversation, the participant(s), or a specific quote/sentence." height="200" tag="pg3_w1"/>
+    <header statement="What do you remember about phone and in person conversations from yesterday."/>
+    <writebox statement="1. If applicable, and to the extent that you feel comfortable, please write down at least five (and as many as possible) details that you remember very clearly from the conversation(s) you had with family member/friend(s) yesterday, such as the topic of a conversation, the participant(s), or a specific quote/sentence." height="400" tag="pg3_w1"/>
     <checkbox title="2. Were any of the things you described in 1 something new to you?" single="True" tag="pg3_c1">
       <entry statement="Yes" tag="pg3_c1.1"/>
       <entry statement="No" tag="pg3_c1.2"/>
     </checkbox>
-    <writebox statement="3. If you answered 'yes' in question 2, please specify which detail(s) in 2 are new experiences:" height="200" tag="pg3_w2"/>
+    <writebox statement="3. If you answered 'yes' in question 2, please specify which detail(s) are new experiences:" height="200" tag="pg3_w2"/>
     <checkbox title="4. Did you feel emotional at any point during the conversations?" single="False" tag="pg3_c2">
       <entry statement="Yes, I was happy/pleased about something" tag="pg3_c2.1"/>
       <entry statement="Yes, I was sad/angry about something" tag="pg3_c2.2"/>
@@ -47,13 +56,13 @@
   </page>
 
   <page title="Watching Clinic-provided TV" shortname="tv">
-    <header statement="You can use the 'next' button to skip a page if the questions are not relevant to what you did yesterday. If you watched TV programs on the Surface tablet, please do NOT write about that here. A later question will ask about your use of the tablet."/>
+    <header statement="A later question will ask about your use of the tablet to watch TV or movies."/>
     <writebox statement="1. If applicable, and to the extent that you feel comfortable, please write down at least five (and as many as possible) details that you remember very clearly from the TV program(s) you watched on the Clinic's television set yesterday, such as the name of a program, the product displayed in a new commercial, or a specific quote/sentence." height="200" tag="pg4_w1"/>
-    <checkbox title="2. Was any of the things you described in 1 something new to you?" single="True" tag="pg4_c1">
+    <checkbox title="2. Were any of the things you described in 1 something new to you?" single="True" tag="pg4_c1">
       <entry statement="Yes" tag="pg4_c1.1"/>
       <entry statement="No" tag="pg4_c1.2"/>
     </checkbox>
-    <writebox statement="3. If you answered 'yes' in question 2, please specify which detail(s) in 2 are new experiences:" height="200" tag="pg4_w2"/>
+    <writebox statement="3. If you answered 'yes' in question 2, please specify which detail(s) are new experiences:" height="200" tag="pg4_w2"/>
     <checkbox title="4. Did you feel emotional at any point while watching?" single="False" tag="pg4_c2">
       <entry statement="Yes, I was happy/pleased about something" tag="pg4_c2.1"/>
       <entry statement="Yes, I was sad/angry about something" tag="pg4_c2.2"/>
@@ -65,13 +74,13 @@
   </page>
 
   <page title="Reading" shortname="read">
-    <header statement="Internet articles and text items also count."/>
+    <header statement="Internet articles and magazines also count."/>
     <writebox statement="1. If applicable, and to the extent that you feel comfortable, please write down at least five (and as many as possible) details that you remember very clearly from the things you read yesterday, such as the title of a book, the name of a character, or a specific quote/sentence." height="200" tag="pg5_w1"/>
-    <checkbox title="2. Was any of the things you described in 1 something new to you?" single="True" tag="pg5_c1">
+    <checkbox title="2. Were any of the things you described in 1 something new to you?" single="True" tag="pg5_c1">
       <entry statement="Yes" tag="pg5_c1.1"/>
       <entry statement="No" tag="pg5_c1.2"/>
     </checkbox>
-    <writebox statement="3. If you answered 'yes' in question 2, please specify which detail(s) in 2 are new experiences:" height="200" tag="pg5_w2"/>
+    <writebox statement="3. If you answered 'yes' in question 2, please specify which detail(s) are new experiences:" height="200" tag="pg5_w2"/>
     <checkbox title="4. Did you feel emotional at any point during your reading?" single="False" tag="pg5_c2">
       <entry statement="Yes, I was happy/pleased about something" tag="pg5_c2.1"/>
       <entry statement="Yes, I was sad/angry about something" tag="pg5_c2.2"/>
@@ -92,11 +101,11 @@
     <writebox statement="2. If you listened to audiobooks and/or podcasts, to the extent that you feel comfortable, please writen down at least five (and as many as possible) details that you remember very clearly from them, such as the name of the book/podcast, the theme of an episode, or a specific quote/sentence." height="200" tag="pg6_w1"/>
     <writebox statement="3. If you played video games on the tablet, to the extent that you feel comfortable, please write down at least five (and as many as possible) details that you remember very clearly from them, such as the name of the game, a rule of the game, or the highest score you obtained." height="200" tag="pg6_w2"/>
     <writebox statement="4. If you watched movies/TV on the tablet, to the extent that you feel comfortable, please write down at least five (and as many as possible) details that you remember very clearly from them, such as the name of the movie/TV show, the lead actor/actress, or a specific scene." height="200" tag="pg6_w3"/>
-    <checkbox title="5. Was any of the things you described in 2-4 something new to you?" single="True" tag="pg6_c2">
+    <checkbox title="5. Were any of the things you described in 2-4 something new to you?" single="True" tag="pg6_c2">
       <entry statement="Yes" tag="pg6_c2.1"/>
       <entry statement="No" tag="pg6_c2.2"/>
     </checkbox>
-    <writebox statement="6. If you answered 'yes' in question 5, please specify which detail(s) in 2-4 are new experiences:" height="200" tag="pg6_w4"/>
+    <writebox statement="6. If you answered 'yes' in question 5, please specify which detail(s) are new experiences:" height="200" tag="pg6_w4"/>
     <checkbox title="7. Did you feel emotional at any point when using the tablet?" single="False" tag="pg6_c3">
       <entry statement="Yes, I was happy/pleased about something" tag="pg6_c3.1"/>
       <entry statement="Yes, I was sad/angry about something" tag="pg6_c3.2"/>
@@ -110,11 +119,11 @@
   <page title="Playing video games" shortname="game">
     <header statement="If you watched movies/TV programs on the Surface tablet, please write down what you remember in the previous page instead."/>
     <writebox statement="1. To the extent that you feel comfortable, please write down at least five (and as many as possible) details that you remember very clearly from the games, such as the name of the game, a rule of the game, or the highest score you obtained." height="200" tag="pg7_w1"/>
-    <checkbox title="2. Was any of the things you described in 1 something new to you?" single="True" tag="pg7_c1">
+    <checkbox title="2. Were any of the things you described in 1 something new to you?" single="True" tag="pg7_c1">
       <entry statement="Yes" tag="pg7_c1.1"/>
       <entry statement="No" tag="pg7_c1.2"/>
     </checkbox>
-    <writebox statement="3. If you answered 'yes' in question 2, please specify which detail(s) in 2 are new experiences:" height="200" tag="pg7_w2"/>
+    <writebox statement="3. If you answered 'yes' in question 2, please specify which detail(s) are new experiences:" height="200" tag="pg7_w2"/>
     <checkbox title="4. Did you feel emotional at any point when playing?" single="False" tag="pg7_c2">
       <entry statement="Yes, I was happy/pleased about something" tag="pg7_c2.1"/>
       <entry statement="Yes, I was sad/angry about something" tag="pg7_c2.2"/>
@@ -142,11 +151,11 @@
   <page title="Listening to Music" shortname="music">
     <header statement="If you remember music from movies/TV shows that you watched yesterday, please write them down in the previous pages corresponding to movies/TV shows instead."/>
     <writebox statement="1. To the extent that you feel comfortable, please write down at least five (and as many as possible) details that you remember very clearly from the music you listened to yesterday, such as the name of the piece/song, the composer/artist, or a line of lyrics." height="200" tag="pg8_w1"/>
-    <checkbox title="2. Was any of the things you described in 1 something new to you?" single="True" tag="pg8_c1">
+    <checkbox title="2. Were any of the things you described in 1 something new to you?" single="True" tag="pg8_c1">
       <entry statement="Yes" tag="pg8_c1.1"/>
       <entry statement="No" tag="pg8_c1.2"/>
     </checkbox>
-    <writebox statement="3. If you answered 'yes' in question 2, please specify which detail(s) in 2 are new experiences:" height="200" tag="pg8_w2"/>
+    <writebox statement="3. If you answered 'yes' in question 2, please specify which detail(s) are new experiences:" height="200" tag="pg8_w2"/>
     <checkbox title="4. Did you feel emotional at any point when listening to music?" single="False" tag="pg8_c2">
       <entry statement="Yes, I was happy/pleased about something" tag="pg8_c2.1"/>
       <entry statement="Yes, I was sad/angry about something" tag="pg8_c2.2"/>
@@ -158,6 +167,7 @@
   </page>
 
   <page title="Free Recall" shortname="recall">
+    <header statement="Thank you for your time!"/>
     <writebox statement="1. If you remember other important experiences yesterday that were not covered anywhere else in the survey (e.g. a wonderful breakfast), please describe them here." height="800" tag="pg9_w1"/>
   </page>
 
